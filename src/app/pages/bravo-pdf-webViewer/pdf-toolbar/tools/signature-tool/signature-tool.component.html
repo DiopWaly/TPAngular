@@ -1,0 +1,13 @@
+<div id="signature_modal" class="modal" [style.display]="isOpenTool ? 'block' :'none'" #signatureModal>
+  <div class="signature_modal-content">
+    <div class="signature_modal-header">
+      <span class="signature_modal-close" (click)="onCloseSignatureTool()">&times;</span>
+    </div>
+    <div class="signature_modal-body">
+      <bravo-drawing-app #drawingTool (savedAction)="savedActionDrawingApp($event)"></bravo-drawing-app>
+    </div>
+    <!-- <div class="signature_modal-footer">
+      <h3>Modal Footer</h3>
+    </div> -->
+  </div>
+</div>

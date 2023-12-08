@@ -1,0 +1,9 @@
+<div id="editorModeButtons" class="splitToolbarButton toggled hiddenTinyView" role="radiogroup"
+  *ngIf="!!showStampEditor || !!showDrawEditor || !!showTextEditor">
+  <pdf-stamp-editor-dropdown [show]="showStampEditor"></pdf-stamp-editor-dropdown>
+  <pdf-text-editor [show]="showTextEditor"></pdf-text-editor>
+  <pdf-draw-editor [show]="showDrawEditor"></pdf-draw-editor>
+</div>
+
+<div id="editorModeSeparator" class="verticalToolbarSeparator hiddenTinyView"
+  *ngIf="!!showStampEditor || !!showDrawEditor || !!showTextEditor"></div>

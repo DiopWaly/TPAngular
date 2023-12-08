@@ -1,0 +1,49 @@
+@mixin editorParamsBtnBase {
+  border: none;
+  padding: 10px 45px;
+  outline: none;
+  background: #e2e7f5;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  align-items: center;
+  text-align: center;
+  color: #0c5ca8;
+
+  &:hover {
+    background: #6eb9f7;
+    border-radius: 5px;
+    color: #0c5ca8;
+    transition: background 0.8s;
+  }
+}
+
+.editorParamsToolbar {
+  min-width: 250px;
+  width: 250px;
+  padding: 10px;
+  margin: auto;
+}
+
+.editorParamsToolbarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  color: #525659;
+}
+
+#editorStampAddImage {
+  @include editorParamsBtnBase();
+  margin-bottom: 20px;
+}
+
+#signatureTool {
+  @include editorParamsBtnBase();
+}
+
+.listSignaturesAvailableContainer {
+  margin-bottom: 10px;
+}

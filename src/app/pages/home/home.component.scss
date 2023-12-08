@@ -1,0 +1,48 @@
+.mat-elevation-z8 {
+    width: 80%;
+    margin: 20px auto;
+}
+.img_server{
+    width: 30px;
+    height: 30px;
+}
+.badge{
+    border-radius: 17px;
+    color: white;
+    padding: 3px 7px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+.badge-up{
+    background: rgb(45, 246, 0);
+}
+.badge-down{
+    background: rgb(255, 3, 3);
+}
+.mat-mdc-table .mdc-data-table__header-row{
+    background: #0a0a7c;
+    height: 60px;
+}
+th{
+    color: white;
+    font-family: ui-monospace;
+    font-size: 16px;
+}
+button{
+    cursor: pointer;
+}
+.pingbtn{
+    background: yellow;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+.pingbtn:hover{
+    background: rgba(240, 240, 28, 0.818);
+}
+.deletebtn{
+    background: hsl(0, 100%, 50%);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}

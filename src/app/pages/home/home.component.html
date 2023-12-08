@@ -1,0 +1,76 @@
+<!-- <div> {{ appState$ | async | json}}</div> -->
+<button [routerLink]="['/routePath']" >Redirect</button>
+<ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState" >
+  <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef> Image </th>
+          <td mat-cell *matCellDef="let element"> <img [src]="element.imageUrl" alt="" class="img_server"> </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="ipAddress">
+          <th mat-header-cell *matHeaderCellDef> IP Address </th>
+          <td mat-cell *matCellDef="let element"> {{element.ipAddress}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="memory">
+          <th mat-header-cell *matHeaderCellDef> Memory </th>
+          <td mat-cell *matCellDef="let element"> {{element.memory}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> 
+            <span [ngClass]="[element.status === Status.SERVER_UP ? 'badge badge-up':'badge badge-down']">
+              {{element.status === Status.SERVER_UP ? 'UP' : 'DOWN'}} 
+            </span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ping">
+          <th mat-header-cell *matHeaderCellDef> Ping </th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <mat-spinner></mat-spinner> -->
+            <button class="pingbtn" (click)="ping(element)">
+              ping
+              <!-- <i class="matarial-icons" title="ping server">&#xe328;</i> -->
+              <!-- <i class="fa fa-spinner fa-spin" style="font-size:24px"></i> -->
+            </button>
+            <mat-icon (click)="ping(element)" class="mat-icon-rtl-mirror" aria-hidden="false" aria-label="Example home icon" fontIcon="server"></mat-icon>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element"> 
+            <!-- <button (click)="delete(element)" class="deletebtn">delete</button>  -->
+            <mat-icon (click)="deletetest(element)" class="mat-icon-rtl-mirror" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+      </mat-paginator>
+  </div>
+  </ng-container>
+</ng-container>
+
+
+
+
+  

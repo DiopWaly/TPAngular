@@ -1,0 +1,42 @@
+<div id="toolbarViewer">
+  <div id="toolbarViewerLeft">
+    <pdf-toggle-sidebar [show]="showSidebarButton" [sidebarVisible]="sidebarVisible"
+      (showChange)="updateSidebarVisible($event)"></pdf-toggle-sidebar>
+    <pdf-find-button [showFindButton]="showFindButton" [textLayer]="textLayer"
+      [findbarVisible]="findbarVisible"></pdf-find-button>
+    <pdf-paging-area [showPagingButtons]="showPagingButtons"></pdf-paging-area>
+  </div>
+  <pdf-zoom-toolbar [showZoomButtons]="showZoomButtons" [zoomLevels]="zoomLevels"></pdf-zoom-toolbar>
+  <div id="toolbarViewerRight">
+    <!-- <pdf-document-properties [show]="showPropertiesButton"></pdf-document-properties> -->
+    <pdf-no-spread [scrollMode]="scrollMode" [show]="showSpreadButton"></pdf-no-spread>
+    <pdf-odd-spread [scrollMode]="scrollMode" [show]="showSpreadButton"></pdf-odd-spread>
+    <pdf-even-spread [scrollMode]="scrollMode" [show]="showSpreadButton"></pdf-even-spread>
+    <pdf-single-page-mode [show]="showSinglePageModeButton" [pageViewMode]="pageViewMode"
+      (pageViewModeChange)="updatePageViewMode($event)" [scrollMode]="scrollMode"></pdf-single-page-mode>
+    <pdf-vertical-scroll-mode [show]="showVerticalScrollButton" [pageViewMode]="pageViewMode"
+      (pageViewModeChange)="updatePageViewMode($event)" [scrollMode]="scrollMode"></pdf-vertical-scroll-mode>
+    <pdf-horizontal-scroll [show]="showHorizontalScrollButton" [pageViewMode]="pageViewMode"
+      (pageViewModeChange)="updatePageViewMode($event)" [scrollMode]="scrollMode"></pdf-horizontal-scroll>
+    <pdf-wrapped-scroll-mode [show]="showWrappedScrollButton" [pageViewMode]="pageViewMode"
+      (pageViewModeChange)="updatePageViewMode($event)" [scrollMode]="scrollMode"></pdf-wrapped-scroll-mode>
+    <pdf-infinite-scroll [show]="showInfiniteScrollButton" [pageViewMode]="pageViewMode"
+      (pageViewModeChange)="updatePageViewMode($event)" [scrollMode]="scrollMode"></pdf-infinite-scroll>
+    <pdf-book-mode [show]="showBookModeButton" [pageViewMode]="pageViewMode"
+      (pageViewModeChange)="updatePageViewMode($event)" [scrollMode]="scrollMode"></pdf-book-mode>
+    <pdf-hand-tool [showHandToolButton]="showHandToolButton"></pdf-hand-tool>
+    <pdf-select-tool [showSelectToolButton]="showSelectToolButton"></pdf-select-tool>
+    <pdf-rotate-page [showRotateButton]="showRotateButton" [clockwise]="true" [counterClockwise]="false">
+    </pdf-rotate-page>
+    <pdf-rotate-page [showRotateButton]="showRotateButton" [clockwise]="false" [counterClockwise]="true">
+    </pdf-rotate-page>
+    <pdf-presentation-mode [showPresentationModeButton]="showPresentationModeButton"></pdf-presentation-mode>
+    <pdf-open-file [showOpenFileButton]="showOpenFileButton"></pdf-open-file>
+    <pdf-print [showPrintButton]="showPrintButton"></pdf-print>
+    <pdf-download [showDownloadButton]="showDownloadButton"></pdf-download>
+    <bravo-pdf-editor #bravoEditorTools [showDrawEditor]="showDrawEditor" [showTextEditor]="showTextEditor"
+      [showStampEditor]="showStampEditor"></bravo-pdf-editor>
+    <pdf-toggle-secondary-toolbar [showSecondaryToolbarButton]="showSecondaryToolbarButton">
+    </pdf-toggle-secondary-toolbar>
+  </div>
+</div>

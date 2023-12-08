@@ -1,0 +1,75 @@
+<div class="col">
+    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+    <!-- <button type="button" mat-raised-button (click)="click()">image</button> -->
+    <input type="file" accept="application/pdf" hidden #fileInput (change)="onFileSelected($event)" />
+    <div class="file-preview-container">
+        <img [src]="selectedFilePath" *ngIf="isFileImage" height="200" alt="">
+        <!-- <ngx-extended-pdf-viewer
+            [base64Src]="selectedFileB64" background="ffffff" [height]="'90vh'"
+            [useBrowserLocale]="true"
+            [handTool]="true"
+            [showHandToolButton]="true"
+            [textLayer]="true"
+            
+            backgroundColor="#5c5c5c"
+            theme="dark"
+            [showToolbar]="true"
+            [showSidebarButton]="true"
+            [showFindButton]="true"
+            [showPagingButtons]="true"
+            [showDrawEditor]="true"
+            [showTextEditor]="true"
+            [showZoomButtons]="true"
+            [showPresentationModeButton]="true"
+            [showOpenFileButton]="true"
+            [showPrintButton]="true"
+            [showDownloadButton]="true"
+            [showSecondaryToolbarButton]="true"
+            [showRotateButton]="false"
+            [showHandToolButton]="true"
+            [showScrollingButton]="true"
+            [showSpreadButton]="true"
+            [showPropertiesButton]="true"
+            *ngIf="isFileDocument">
+
+        </ngx-extended-pdf-viewer> -->
+        <ngx-extended-pdf-viewer
+        [contextMenuAllowed]="false"
+        [base64Src]="selectedFileB64"
+        [customToolbar]="additionalButtons"
+        [showTextEditor]="true"
+        [useBrowserLocale]="true"
+        [textLayer]="true"
+        (pageRendered)="click($event)"
+        imageResourcePath="https://i.imgur.com/fFZeedg.png"
+        [showHandToolButton]="true" *ngIf="isFileDocument">
+    </ngx-extended-pdf-viewer>
+    <canvas id="mydiv" style="border: 1px solid red; width: 200px; height: 200px"></canvas>
+</div>
+<ng-template #additionalButtons>
+    <div id="toolbarViewer" style="background-color:#f8f9fa; width: 100%;height: 36px;box-sizing: content-box!important;z-index: 72;opacity: 1;">
+      <div id="toolbarViewerLeft">
+        <pdf-toggle-sidebar style="width: 32px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-toggle-sidebar>
+        <div class="toolbarButtonSpacer"></div>
+        <pdf-find-button [showFindButton]="true" [textLayer]="true" style="width: 56px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-find-button>
+        <pdf-paging-area style="width: 197px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-paging-area>
+      </div>
+      <pdf-zoom-toolbar style="width: 32px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-zoom-toolbar> <!-- toolbar viewer middle -->
+      <div id="toolbarViewerRight">
+        <pdf-open-file style="width: 32px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-open-file>
+        <pdf-presentation-mode style="width: 32px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-presentation-mode>
+        <!-- <pdf-print style="width: 32px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-print> -->
+        <pdf-editor (click)="addDrawing()" style="height: 32px;font-size:13px;zoom: 1.2;"></pdf-editor>
+        <!-- <app-open-in-new-tab></app-open-in-new-tab> -->
+        <pdf-download style="width: 32px;height: 32px;font-size:13px;zoom: 1.2;"></pdf-download>
+        <!-- <div class="verticalToolbarSeparator hiddenSmallView"></div> -->
+        <!-- <pdf-toggle-secondary-toolbar></pdf-toggle-secondary-toolbar> -->
+      </div>
+    </div>
+  </ng-template>
+  <!-- <div id="mydiv">
+    <div id="mydivheader">Click here to move</div>
+    <p>Move</p>
+    <p>this</p>
+    <p>DIV</p>
+  </div> -->
